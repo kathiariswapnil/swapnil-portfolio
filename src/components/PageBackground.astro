@@ -1,4 +1,6 @@
 ---
+import { asset } from "../lib/assets";
+
 const particles = Array.from({ length: 18 }, (_, i) => ({
   i,
   x: `${8 + ((i * 5.2) % 84)}%`,
@@ -11,7 +13,7 @@ const particles = Array.from({ length: 18 }, (_, i) => ({
 <div class="page-background" aria-hidden="true">
   <div class="page-background__art">
     <img
-      src="/images/page-background-v3.png"
+      src={asset("/images/page-background-v3.png")}
       alt=""
       class="page-background__image"
       width="1080"

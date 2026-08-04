@@ -167,27 +167,29 @@ export const skills = [
   },
 ];
 
+import { asset } from "../lib/assets";
+
 export const writing = [
   {
     title: "Product thinking on AI-native workflows",
     excerpt:
       "Exploring how agentic AI changes the PM toolkit—from discovery to delivery.",
     url: "https://medium.com/@email.swapnill",
-    image: "/images/writing-ai-workflows.png",
+    image: asset("/images/writing-ai-workflows.png"),
   },
   {
     title: "From QA to Product Management",
     excerpt:
       "How a quality-first mindset shapes better product decisions and launch confidence.",
     url: "https://medium.com/@email.swapnill",
-    image: "/images/writing-qa-to-pm.png",
+    image: asset("/images/writing-qa-to-pm.png"),
   },
   {
     title: "Building with MCP and agentic tools",
     excerpt:
       "Notes on integrating MCP servers into real product workflows.",
     url: "https://medium.com/@email.swapnill",
-    image: "/images/writing-mcp-tools.png",
+    image: asset("/images/writing-mcp-tools.png"),
   },
 ];
 

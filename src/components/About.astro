@@ -1,5 +1,6 @@
 ---
 import { site } from "../data/site";
+import { asset } from "../lib/assets";
 ---
 
 <section id="about" class="reveal-section py-24 md:py-32 px-6">
@@ -32,7 +33,7 @@ import { site } from "../data/site";
       <div class="profile-portrait__glow" aria-hidden="true"></div>
       <figure class="profile-portrait__frame glass-card">
         <img
-          src="/images/swapnil-profile.png"
+          src={asset("/images/swapnil-profile.png")}
           alt={`${site.name} — Product Manager`}
           class="profile-portrait__image"
           width="340"

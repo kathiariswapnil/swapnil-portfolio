@@ -1,5 +1,6 @@
 ---
 import { site } from "../data/site";
+import { asset } from "../lib/assets";
 ---
 
 <header
@@ -23,7 +24,7 @@ import { site } from "../data/site";
       <a href="#contact" class="transition-colors hover:text-accent">Contact</a>
     </div>
     <a
-      href="/resume.pdf"
+      href={asset("/resume.pdf")}
       download
       class="rounded-full border border-ink/15 px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
     >
