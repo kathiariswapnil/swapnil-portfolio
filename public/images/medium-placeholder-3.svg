@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="250" viewBox="0 0 400 250" fill="none">
+  <rect width="400" height="250" fill="#F7F4EF"/>
+  <rect x="24" y="24" width="352" height="120" rx="8" fill="#1A1A1A" opacity="0.06"/>
+  <rect x="24" y="160" width="220" height="10" rx="5" fill="#1A1A1A" opacity="0.15"/>
+  <rect x="24" y="182" width="160" height="8" rx="4" fill="#1A1A1A" opacity="0.08"/>
+  <text x="200" y="230" text-anchor="middle" fill="#5B4FFF" font-family="system-ui" font-size="12" opacity="0.5">Medium article placeholder</text>
+</svg>

@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f7f4ef;
+  --color-ink: #1a1a1a;
+  --color-ink-muted: #5c5c5c;
+  --color-accent: #5b4fff;
+  --color-accent-soft: #ebe9ff;
+  --color-border: #e8e4dc;
+
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  [id] {
+    scroll-margin-top: 5.5rem;
+  }
+
+  ::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  .section-label {
+    @apply text-xs uppercase tracking-[0.2em] text-ink-muted font-medium;
+  }
+
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .hero-beat {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-item,
+    .hero-beat {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+---
+import { experience } from "../data/site";
+---
+
+<section id="experience" class="reveal-section scroll-mt-24 py-24 md:py-32 px-6">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal-item mb-16 max-w-2xl">
+      <p class="section-label">Experience</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-ink mt-3">
+        Where I've built
+      </h2>
+    </div>
+
+    <ol class="timeline relative">
+      <div
+        class="timeline-line absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-3 bottom-3 w-px bg-border origin-top scale-y-0"
+        aria-hidden="true"
+      >
+      </div>
+
+      {
+        experience.map((item) => (
+          <li class="timeline-item reveal-item relative pb-12 last:pb-0">
+            <div class="md:grid md:grid-cols-2 md:gap-x-12 md:items-start">
+              <div class="hidden md:flex md:justify-end md:pr-10 md:pt-2">
+                <div class="text-right max-w-xs">
+                  <p class="font-serif text-2xl text-ink leading-tight">
+                    {item.company}
+                  </p>
+                  <p class="text-sm text-ink-muted mt-1">{item.period}</p>
+                  <p class="text-sm text-ink-muted">{item.location}</p>
+                </div>
+              </div>
+
+              <div class="relative pl-10 md:pl-0 md:pt-2">
+                <span
+                  class="timeline-dot absolute left-[5px] md:left-0 md:-translate-x-1/2 top-2.5 z-10 h-3.5 w-3.5 rounded-full border-2 border-accent bg-paper"
+                  aria-hidden="true"
+                />
+
+                <article class="rounded-2xl border border-border bg-white/70 p-6 md:max-w-lg">
+                  <div class="md:hidden mb-4">
+                    <p class="font-serif text-xl text-ink">{item.company}</p>
+                    <p class="text-sm text-ink-muted mt-1">
+                      {item.period} · {item.location}
+                    </p>
+                  </div>
+
+                  <p class="font-medium text-accent">{item.role}</p>
+
+                  <ul class="mt-4 space-y-3">
+                    {item.highlights.map((highlight) => (
+                      <li class="text-sm leading-relaxed text-ink-muted pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.55rem] before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .timeline-item > div > div:last-child {
+      padding-left: 1.5rem;
+    }
+
+    .timeline-dot {
+      left: 0;
+    }
+  }
+</style>

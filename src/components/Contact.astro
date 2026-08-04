@@ -1,0 +1,98 @@
+---
+import { site, education, certifications } from "../data/site";
+---
+
+<section id="contact" class="reveal-section py-24 md:py-32 px-6">
+  <div class="mx-auto max-w-6xl">
+    <div
+      class="reveal-item rounded-3xl border border-border bg-gradient-to-br from-white/80 to-accent-soft/30 p-8 md:p-12 lg:p-16"
+    >
+      <div class="grid gap-12 lg:grid-cols-2">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-ink mt-3 leading-tight">
+            Let's build something<br />that ships with confidence.
+          </h2>
+          <p class="mt-6 text-lg text-ink-muted max-w-md">
+            Open to PM roles, collaborations, and conversations about AI-native
+            product development.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href={`mailto:${site.email}`}
+              class="inline-flex items-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+            >
+              Email me
+            </a>
+            <a
+              href="/resume.pdf"
+              download
+              class="inline-flex items-center rounded-full border border-ink/15 px-6 py-3 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              Download resume
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-8">
+          <div>
+            <p class="text-sm font-medium text-ink">Connect</p>
+            <ul class="mt-3 space-y-2">
+              <li>
+                <a
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-ink-muted hover:text-accent transition-colors"
+                >
+                  LinkedIn →
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.medium}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-ink-muted hover:text-accent transition-colors"
+                >
+                  Medium →
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${site.email}`}
+                  class="text-ink-muted hover:text-accent transition-colors"
+                >
+                  {site.email}
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-sm font-medium text-ink">Education</p>
+            <p class="mt-2 text-sm text-ink-muted">{education.degree}</p>
+            <p class="text-sm text-ink-muted">{education.school}</p>
+            <p class="text-sm text-ink-muted">{education.period}</p>
+          </div>
+
+          <div>
+            <p class="text-sm font-medium text-ink">Certifications</p>
+            {
+              certifications.map((cert) => (
+                <p class="mt-2 text-sm text-ink-muted">
+                  {cert.name} · {cert.issuer} · {cert.date}
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-16 pt-8 border-t border-border text-center text-sm text-ink-muted">
+      <p>© {new Date().getFullYear()} {site.name}. Built with Astro.</p>
+    </footer>
+  </div>
+</section>

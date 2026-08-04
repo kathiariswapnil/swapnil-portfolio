@@ -1,0 +1,75 @@
+---
+import { site, heroMetrics } from "../data/site";
+---
+
+<section
+  id="hero"
+  class="hero-scroll-section relative min-h-screen md:min-h-[300vh]"
+  aria-label="Introduction"
+>
+  <div
+    class="hero-static md:hidden px-6 pt-32 pb-20 max-w-4xl mx-auto space-y-8"
+  >
+    <p class="section-label">Product Manager · Bengaluru</p>
+    <h1 class="font-serif text-5xl leading-tight text-ink">
+      {site.name}
+    </h1>
+    <p class="text-xl leading-relaxed text-ink-muted max-w-2xl">
+      {site.thesis}
+    </p>
+    <div class="flex flex-wrap gap-8 pt-4">
+      {
+        heroMetrics.map((metric) => (
+          <div>
+            <p class="font-serif text-4xl text-accent">
+              {metric.value}
+              {metric.suffix}
+            </p>
+            <p class="text-sm text-ink-muted mt-1">{metric.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div
+    class="hero-pinned hidden md:flex h-screen items-center justify-center"
+  >
+    <div class="max-w-4xl px-6 text-center">
+      <div class="hero-beat hero-beat-1 space-y-4">
+        <p class="section-label">Product Manager · Bengaluru</p>
+        <h1 class="font-serif text-6xl lg:text-7xl leading-[1.05] text-ink">
+          {site.name}
+        </h1>
+      </div>
+
+      <div class="hero-beat hero-beat-2 mt-12">
+        <p class="font-serif text-3xl lg:text-4xl leading-snug text-ink max-w-3xl mx-auto italic">
+          {site.thesis}
+        </p>
+      </div>
+
+      <div class="hero-beat hero-beat-3 mt-16">
+        <div class="flex flex-wrap justify-center gap-12 lg:gap-16">
+          {
+            heroMetrics.map((metric, i) => (
+              <div class="text-center">
+                <p
+                  class="font-serif text-5xl lg:text-6xl text-accent hero-counter"
+                  data-target={metric.value}
+                  data-suffix={metric.suffix}
+                >
+                  0{metric.suffix}
+                </p>
+                <p class="text-sm text-ink-muted mt-2 max-w-[140px] mx-auto">
+                  {metric.label}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

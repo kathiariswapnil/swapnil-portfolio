@@ -1,0 +1,33 @@
+---
+import { site } from "../data/site";
+---
+
+<header
+  class="fixed top-0 inset-x-0 z-40 border-b border-border/60 bg-paper/80 backdrop-blur-md"
+>
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+    aria-label="Primary"
+  >
+    <a href="#" class="font-serif text-xl tracking-tight text-ink">
+      {site.name.split(" ")[0]}
+    </a>
+    <div class="hidden items-center gap-8 text-sm text-ink-muted md:flex">
+      <a href="#about" class="transition-colors hover:text-accent">About</a>
+      <a href="#experience" class="transition-colors hover:text-accent"
+        >Experience</a
+      >
+      <a href="#projects" class="transition-colors hover:text-accent">Projects</a
+      >
+      <a href="#writing" class="transition-colors hover:text-accent">Writing</a>
+      <a href="#contact" class="transition-colors hover:text-accent">Contact</a>
+    </div>
+    <a
+      href="/resume.pdf"
+      download
+      class="rounded-full border border-ink/15 px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+    >
+      Resume
+    </a>
+  </nav>
+</header>

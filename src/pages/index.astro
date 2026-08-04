@@ -1,17 +1,34 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import HeroScroll from "../components/HeroScroll.astro";
+import About from "../components/About.astro";
+import ImpactMetrics from "../components/ImpactMetrics.astro";
+import Timeline from "../components/Timeline.astro";
+import Projects from "../components/Projects.astro";
+import SkillsBento from "../components/SkillsBento.astro";
+import Writing from "../components/Writing.astro";
+import Contact from "../components/Contact.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <Nav />
+  <main id="main">
+    <HeroScroll />
+    <About />
+    <ImpactMetrics />
+    <Timeline />
+    <Projects />
+    <SkillsBento />
+    <Writing />
+    <Contact />
+  </main>
+</BaseLayout>
+
+<script>
+  import { initHeroScroll } from "../scripts/heroScroll";
+  import { initSectionReveals } from "../scripts/sectionReveals";
+
+  initHeroScroll();
+  initSectionReveals();
+</script>

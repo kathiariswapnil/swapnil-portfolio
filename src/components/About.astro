@@ -1,0 +1,48 @@
+---
+import { site } from "../data/site";
+---
+
+<section id="about" class="reveal-section py-24 md:py-32 px-6">
+  <div class="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[1fr_280px] items-start">
+    <div class="reveal-item space-y-6">
+      <p class="section-label">About</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-ink leading-tight">
+        QA roots. PM mindset.<br />AI-native delivery.
+      </h2>
+      <p class="text-lg leading-relaxed text-ink-muted max-w-2xl">
+        {site.summary}
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        <span
+          class="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent"
+          >B2B SaaS</span
+        >
+        <span
+          class="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent"
+          >Finance & Reporting</span
+        >
+        <span
+          class="rounded-full bg-accent-soft px-4 py-1.5 text-sm font-medium text-accent"
+          >Agentic AI</span
+        >
+      </div>
+    </div>
+
+    <div class="reveal-item">
+      <div
+        class="aspect-[4/5] rounded-2xl border border-border bg-accent-soft/40 overflow-hidden flex items-center justify-center"
+      >
+        <img
+          src="/images/linkedin-profile-placeholder.svg"
+          alt="Swapnil Kathiari — profile photo placeholder"
+          class="w-full h-full object-cover"
+          width="280"
+          height="350"
+        />
+      </div>
+      <p class="text-xs text-ink-muted mt-3 text-center">
+        Replace with LinkedIn headshot
+      </p>
+    </div>
+  </div>
+</section>

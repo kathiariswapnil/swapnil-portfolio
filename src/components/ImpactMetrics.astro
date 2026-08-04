@@ -1,0 +1,18 @@
+---
+import MetricCard from "./MetricCard.astro";
+import { impactMetrics } from "../data/site";
+---
+
+<section id="impact" class="reveal-section py-24 md:py-32 px-6 bg-white/40">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal-item mb-12 max-w-2xl">
+      <p class="section-label">Impact</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-ink mt-3">
+        Metrics that moved the needle
+      </h2>
+    </div>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {impactMetrics.map((metric) => <MetricCard {...metric} />)}
+    </div>
+  </div>
+</section>

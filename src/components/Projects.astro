@@ -1,0 +1,22 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+import { projects } from "../data/site";
+---
+
+<section id="projects" class="reveal-section py-24 md:py-32 px-6 bg-white/40">
+  <div class="mx-auto max-w-6xl">
+    <div class="reveal-item mb-12 max-w-2xl">
+      <p class="section-label">Selected work</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-ink mt-3">
+        Case study highlights
+      </h2>
+      <p class="mt-4 text-ink-muted">
+        Hover to expand details on desktop. Each card is a proof point—not a
+        pitch deck.
+      </p>
+    </div>
+    <div class="grid gap-6 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </div>
+</section>
