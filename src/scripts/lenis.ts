@@ -27,12 +27,39 @@ export function initSmoothScroll() {
 
   lenisInstance.on("scroll", ScrollTrigger.update);
 
+  ScrollTrigger.scrollerProxy(document.documentElement, {
+    scrollTop(value) {
+      if (arguments.length && lenisInstance) {
+        lenisInstance.scrollTo(value, { immediate: true });
+      }
+      return lenisInstance?.scroll ?? window.scrollY;
+    },
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+  });
+
+  ScrollTrigger.defaults({ scroller: document.documentElement });
+
   gsap.ticker.add((time) => {
     lenisInstance?.raf(time * 1000);
   });
 
   gsap.ticker.lagSmoothing(0);
-  initialized = true;
 
+  ScrollTrigger.addEventListener("refresh", () => {
+    lenisInstance?.resize();
+  });
+
+  initialized = true;
   return lenisInstance;
+}
+
+export function refreshScroll() {
+  ScrollTrigger.refresh();
 }

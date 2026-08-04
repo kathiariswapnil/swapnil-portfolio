@@ -1,0 +1,90 @@
+---
+const particles = Array.from({ length: 18 }, (_, i) => ({
+  i,
+  x: `${8 + ((i * 5.2) % 84)}%`,
+  y: `${6 + ((i * 11.3) % 88)}%`,
+  size: `${3 + (i % 4)}px`,
+  delay: `${i * 0.35}s`,
+}));
+---
+
+<div class="page-background" aria-hidden="true">
+  <div class="page-background__art">
+    <img
+      src="/images/page-background-v3.png"
+      alt=""
+      class="page-background__image"
+      width="1080"
+      height="1920"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <div class="page-background__mesh">
+    <span class="page-background__orb page-background__orb--1"></span>
+    <span class="page-background__orb page-background__orb--2"></span>
+    <span class="page-background__orb page-background__orb--3"></span>
+    <span class="page-background__orb page-background__orb--4"></span>
+  </div>
+
+  <svg
+    class="page-background__flows"
+    viewBox="0 0 1440 3200"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#5B4FFF" stop-opacity="0.6"></stop>
+        <stop offset="50%" stop-color="#9B8CFF" stop-opacity="0.38"></stop>
+        <stop offset="100%" stop-color="#5B4FFF" stop-opacity="0.16"></stop>
+      </linearGradient>
+    </defs>
+    <path
+      class="page-background__flow page-background__flow--1"
+      d="M120,200 C360,420 280,680 520,920 S880,1280 720,1560 S420,2100 680,2380 S1100,2720 900,3000"
+      fill="none"
+      stroke="url(#flowGrad)"
+      stroke-width="2"
+      stroke-linecap="round"></path>
+    <path
+      class="page-background__flow page-background__flow--2"
+      d="M1320,260 C1080,520 1180,860 940,1100 S620,1500 860,1780 S1180,2280 960,2560 S700,2920 980,3140"
+      fill="none"
+      stroke="url(#flowGrad)"
+      stroke-width="1.5"
+      stroke-linecap="round"></path>
+    <path
+      class="page-background__flow page-background__flow--3"
+      d="M720,80 C820,360 640,540 760,820 S920,1180 680,1420 S500,1880 740,2140 S960,2580 720,2840"
+      fill="none"
+      stroke="url(#flowGrad)"
+      stroke-width="1.2"
+      stroke-linecap="round"></path>
+  </svg>
+
+  <div class="page-background__particles">
+    {
+      particles.map((particle) => (
+        <span
+          class="page-background__particle"
+          style={`--i: ${particle.i}; --x: ${particle.x}; --y: ${particle.y}; --size: ${particle.size}; --delay: ${particle.delay};`}
+        />
+      ))
+    }
+  </div>
+
+  <div class="page-background__glow page-background__glow--top"></div>
+  <div class="page-background__glow page-background__glow--mid"></div>
+  <div class="page-background__glow page-background__glow--bottom"></div>
+  <div class="page-background__veil"></div>
+  <div class="page-background__grid"></div>
+  <div class="page-background__shimmer"></div>
+</div>
+
+<script>
+  import { initBackgroundAnimation } from "../scripts/backgroundAnimation";
+
+  initBackgroundAnimation();
+</script>

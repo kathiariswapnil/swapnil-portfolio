@@ -15,7 +15,7 @@ import { skills } from "../data/site";
       {
         skills.map((group, index) => (
           <article
-            class={`reveal-item rounded-2xl border border-border bg-white/60 p-6 md:p-8 ${index === 3 ? "sm:col-span-2 lg:col-span-1" : ""}`}
+            class={`reveal-item rounded-2xl glass-card p-6 md:p-8 ${index === 3 ? "sm:col-span-2 lg:col-span-1" : ""}`}
           >
             <h3 class="font-serif text-2xl text-ink">{group.title}</h3>
             <div class="mt-4 flex flex-wrap gap-2">

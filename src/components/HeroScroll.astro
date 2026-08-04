@@ -1,26 +1,30 @@
 ---
 import { site, heroMetrics } from "../data/site";
+
+const [firstName, ...restName] = site.name.split(" ");
+const lastName = restName.join(" ");
 ---
 
 <section
   id="hero"
-  class="hero-scroll-section relative min-h-screen md:min-h-[300vh]"
+  class="hero-scroll-section relative overflow-hidden"
   aria-label="Introduction"
 >
   <div
-    class="hero-static md:hidden px-6 pt-32 pb-20 max-w-4xl mx-auto space-y-8"
+    class="hero-static md:hidden px-6 pt-32 pb-20 max-w-4xl mx-auto relative z-10 flex flex-col items-center gap-8 text-center"
   >
-    <p class="section-label">Product Manager · Bengaluru</p>
-    <h1 class="font-serif text-5xl leading-tight text-ink">
-      {site.name}
+    <p class="section-label w-full text-center">Product Manager · Bengaluru</p>
+    <h1 class="hero-name font-serif text-5xl leading-tight text-ink">
+      <span class="hero-name__line">{firstName}</span>
+      <span class="hero-name__line">{lastName}</span>
     </h1>
     <p class="text-xl leading-relaxed text-ink-muted max-w-2xl">
       {site.thesis}
     </p>
-    <div class="flex flex-wrap gap-8 pt-4">
+    <div class="flex flex-wrap justify-center gap-8 w-full">
       {
         heroMetrics.map((metric) => (
-          <div>
+          <div class="text-center">
             <p class="font-serif text-4xl text-accent">
               {metric.value}
               {metric.suffix}
@@ -32,27 +36,31 @@ import { site, heroMetrics } from "../data/site";
     </div>
   </div>
 
-  <div
-    class="hero-pinned hidden md:flex h-screen items-center justify-center"
-  >
-    <div class="max-w-4xl px-6 text-center">
-      <div class="hero-beat hero-beat-1 space-y-4">
-        <p class="section-label">Product Manager · Bengaluru</p>
-        <h1 class="font-serif text-6xl lg:text-7xl leading-[1.05] text-ink">
-          {site.name}
-        </h1>
+  <div class="hero-sticky hidden md:grid md:h-screen md:w-full md:place-items-center md:z-10">
+    <div class="hero-stage">
+      <div class="hero-beat hero-beat-1 hero-beat-layer">
+        <div class="hero-beat-content">
+          <p class="section-label">Product Manager · Bengaluru</p>
+          <h1 class="hero-name font-serif text-6xl lg:text-7xl leading-[1.05] text-ink">
+            <span class="hero-name__line">{firstName}</span>
+            <span class="hero-name__line">{lastName}</span>
+          </h1>
+        </div>
       </div>
 
-      <div class="hero-beat hero-beat-2 mt-12">
-        <p class="font-serif text-3xl lg:text-4xl leading-snug text-ink max-w-3xl mx-auto italic">
-          {site.thesis}
-        </p>
+      <div class="hero-beat hero-beat-2 hero-beat-layer">
+        <div class="hero-beat-content">
+          <p class="hero-thesis font-serif text-3xl lg:text-4xl leading-snug text-ink italic">
+            {site.thesis}
+          </p>
+        </div>
       </div>
 
-      <div class="hero-beat hero-beat-3 mt-16">
-        <div class="flex flex-wrap justify-center gap-12 lg:gap-16">
+      <div class="hero-beat hero-beat-3 hero-beat-layer">
+        <div class="hero-beat-content">
+          <div class="hero-metrics">
           {
-            heroMetrics.map((metric, i) => (
+            heroMetrics.map((metric) => (
               <div class="text-center">
                 <p
                   class="font-serif text-5xl lg:text-6xl text-accent hero-counter"
@@ -67,9 +75,9 @@ import { site, heroMetrics } from "../data/site";
               </div>
             ))
           }
+          </div>
         </div>
       </div>
     </div>
   </div>
-
 </section>

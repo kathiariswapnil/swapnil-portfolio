@@ -3,7 +3,7 @@ import { site } from "../data/site";
 ---
 
 <section id="about" class="reveal-section py-24 md:py-32 px-6">
-  <div class="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[1fr_280px] items-start">
+  <div class="mx-auto max-w-6xl grid gap-12 lg:grid-cols-[1fr_340px] items-start">
     <div class="reveal-item space-y-6">
       <p class="section-label">About</p>
       <h2 class="font-serif text-4xl md:text-5xl text-ink leading-tight">
@@ -28,21 +28,82 @@ import { site } from "../data/site";
       </div>
     </div>
 
-    <div class="reveal-item">
-      <div
-        class="aspect-[4/5] rounded-2xl border border-border bg-accent-soft/40 overflow-hidden flex items-center justify-center"
-      >
+    <div class="reveal-item profile-portrait">
+      <div class="profile-portrait__glow" aria-hidden="true"></div>
+      <figure class="profile-portrait__frame glass-card">
         <img
-          src="/images/linkedin-profile-placeholder.svg"
-          alt="Swapnil Kathiari — profile photo placeholder"
-          class="w-full h-full object-cover"
-          width="280"
-          height="350"
+          src="/images/swapnil-profile.png"
+          alt={`${site.name} — Product Manager`}
+          class="profile-portrait__image"
+          width="340"
+          height="425"
+          loading="lazy"
         />
-      </div>
-      <p class="text-xs text-ink-muted mt-3 text-center">
-        Replace with LinkedIn headshot
-      </p>
+        <figcaption class="profile-portrait__caption">
+          <p class="font-serif text-lg text-ink">{site.name}</p>
+          <p class="text-sm text-ink-muted">{site.role} · {site.location}</p>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
+
+<style>
+  .profile-portrait {
+    position: relative;
+  }
+
+  .profile-portrait__glow {
+    position: absolute;
+    inset: 6% -8% -6% -8%;
+    background: radial-gradient(
+      circle at 50% 40%,
+      rgba(91, 79, 255, 0.28) 0%,
+      rgba(155, 140, 255, 0.12) 45%,
+      transparent 72%
+    );
+    filter: blur(20px);
+    animation: portrait-glow 8s ease-in-out infinite;
+  }
+
+  @keyframes portrait-glow {
+    0%,
+    100% {
+      opacity: 0.75;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  .profile-portrait__frame {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    padding: 0.65rem;
+    box-shadow:
+      0 24px 60px rgba(91, 79, 255, 0.16),
+      0 0 0 1px rgba(255, 255, 255, 0.7) inset;
+  }
+
+  .profile-portrait__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.85rem;
+    object-fit: cover;
+  }
+
+  .profile-portrait__caption {
+    padding: 1rem 0.35rem 0.25rem;
+    text-align: center;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .profile-portrait__glow {
+      animation: none;
+    }
+  }
+</style>

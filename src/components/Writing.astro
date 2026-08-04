@@ -2,7 +2,7 @@
 import { writing } from "../data/site";
 ---
 
-<section id="writing" class="reveal-section py-24 md:py-32 px-6 bg-white/40">
+<section id="writing" class="reveal-section section-surface-strong py-24 md:py-32 px-6">
   <div class="mx-auto max-w-6xl">
     <div class="reveal-item mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
       <div class="max-w-2xl">
@@ -11,8 +11,8 @@ import { writing } from "../data/site";
           Thought leadership
         </h2>
         <p class="mt-4 text-ink-muted">
-          Articles and notes from Medium. Replace placeholders with your
-          screenshots when ready.
+          Articles and notes from Medium on product, AI, and quality-first
+          delivery.
         </p>
       </div>
       <a
@@ -32,15 +32,16 @@ import { writing } from "../data/site";
             href={post.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="reveal-item group block overflow-hidden rounded-2xl border border-border bg-white/70 transition-all hover:border-accent/30 hover:shadow-lg"
+            class="reveal-item group block overflow-hidden rounded-2xl glass-card transition-all hover:border-accent/30 hover:shadow-lg"
           >
-            <div class="aspect-[16/10] overflow-hidden bg-accent-soft/30 border-b border-border">
+            <div class="aspect-[16/10] overflow-hidden bg-accent-soft/20 border-b border-border">
               <img
                 src={post.image}
                 alt=""
                 class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 width="400"
                 height="250"
+                loading="lazy"
               />
             </div>
             <div class="p-6">

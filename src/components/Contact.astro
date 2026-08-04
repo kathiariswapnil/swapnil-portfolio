@@ -5,12 +5,14 @@ import { site, education, certifications } from "../data/site";
 <section id="contact" class="reveal-section py-24 md:py-32 px-6">
   <div class="mx-auto max-w-6xl">
     <div
-      class="reveal-item rounded-3xl border border-border bg-gradient-to-br from-white/80 to-accent-soft/30 p-8 md:p-12 lg:p-16"
+      class="reveal-item rounded-3xl glass-card p-8 md:p-12 lg:p-16 overflow-hidden"
     >
-      <div class="grid gap-12 lg:grid-cols-2">
+      <div class="grid gap-12 lg:grid-cols-[1fr_240px_1fr] lg:items-start">
         <div>
           <p class="section-label">Contact</p>
-          <h2 class="font-serif text-4xl md:text-5xl text-ink mt-3 leading-tight">
+          <h2
+            class="font-serif text-4xl md:text-5xl text-ink mt-3 leading-tight"
+          >
             Let's build something<br />that ships with confidence.
           </h2>
           <p class="mt-6 text-lg text-ink-muted max-w-md">
@@ -33,6 +35,19 @@ import { site, education, certifications } from "../data/site";
               Download resume
             </a>
           </div>
+        </div>
+
+        <div
+          class="hidden lg:flex items-center justify-center rounded-2xl border border-white/50 overflow-hidden glass-card p-3"
+        >
+          <img
+            src="/images/swapnil-profile-sm.png"
+            alt={site.name}
+            class="w-full rounded-xl object-cover"
+            width="240"
+            height="300"
+            loading="lazy"
+          />
         </div>
 
         <div class="space-y-8">
@@ -91,7 +106,9 @@ import { site, education, certifications } from "../data/site";
       </div>
     </div>
 
-    <footer class="mt-16 pt-8 border-t border-border text-center text-sm text-ink-muted">
+    <footer
+      class="mt-16 pt-8 border-t border-border text-center text-sm text-ink-muted"
+    >
       <p>© {new Date().getFullYear()} {site.name}. Built with Astro.</p>
     </footer>
   </div>

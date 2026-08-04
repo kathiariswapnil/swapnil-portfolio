@@ -26,9 +26,17 @@ import Contact from "../components/Contact.astro";
 </BaseLayout>
 
 <script>
+  import { initSmoothScroll, refreshScroll } from "../scripts/lenis";
   import { initHeroScroll } from "../scripts/heroScroll";
   import { initSectionReveals } from "../scripts/sectionReveals";
 
+  initSmoothScroll();
   initHeroScroll();
   initSectionReveals();
+
+  requestAnimationFrame(() => refreshScroll());
+
+  window.addEventListener("load", () => {
+    refreshScroll();
+  });
 </script>
