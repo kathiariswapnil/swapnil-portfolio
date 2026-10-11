@@ -1,6 +1,8 @@
 ---
 import { site } from "../data/site";
 import { asset } from "../lib/assets";
+
+const home = import.meta.env.BASE_URL;
 ---
 
 <header
@@ -10,18 +12,18 @@ import { asset } from "../lib/assets";
     class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
     aria-label="Primary"
   >
-    <a href="#" class="font-serif text-xl tracking-tight text-ink">
+    <a href={home} class="font-serif text-xl tracking-tight text-ink">
       {site.name.split(" ")[0]}
     </a>
     <div class="hidden items-center gap-8 text-sm text-ink-muted md:flex">
-      <a href="#about" class="transition-colors hover:text-accent">About</a>
-      <a href="#experience" class="transition-colors hover:text-accent"
+      <a href={`${home}#about`} class="transition-colors hover:text-accent">About</a>
+      <a href={`${home}#experience`} class="transition-colors hover:text-accent"
         >Experience</a
       >
-      <a href="#projects" class="transition-colors hover:text-accent">Projects</a
+      <a href={`${home}#projects`} class="transition-colors hover:text-accent">Projects</a
       >
-      <a href="#writing" class="transition-colors hover:text-accent">Writing</a>
-      <a href="#contact" class="transition-colors hover:text-accent">Contact</a>
+      <a href={`${home}#writing`} class="transition-colors hover:text-accent">Writing</a>
+      <a href={`${home}#contact`} class="transition-colors hover:text-accent">Contact</a>
     </div>
     <a
       href={asset("/resume.pdf")}

@@ -75,6 +75,22 @@ export const experience = [
 
 export const projects = [
   {
+    title: "Manipal AI Scribe",
+    org: "Manipal Hospitals",
+    metric: "OPD prescription from the consultation",
+    problem:
+      "High-volume OPD pulls the consultant into the EMR while the patient is still in the room.",
+    role: "Product requirements for in-room clinical documentation",
+    bullets: [
+      "Ambient capture and section dictation map into the OPD prescription.",
+      "Medicines resolve against the hospital formulary, and nothing is signed until the consultant reviews it.",
+    ],
+    tags: ["Clinical documentation", "OPD", "Hospital EMR"],
+    demoUrl: null,
+    caseUrl: "/projects/manipal-ai-scribe",
+    pdfUrl: "/manipal-ai-scribe-prd-v1.pdf",
+  },
+  {
     title: "FolioSure",
     org: "Acuity Analytics",
     metric: "32% ingestion time reduction",
@@ -87,6 +103,8 @@ export const projects = [
     ],
     tags: ["AI ingestion", "Enterprise reporting", "Data pipelines"],
     demoUrl: null,
+    caseUrl: null,
+    pdfUrl: null,
   },
   {
     title: "Fancode",
@@ -101,6 +119,8 @@ export const projects = [
     ],
     tags: ["Product thinking", "Figma", "Agentic AI"],
     demoUrl: "#fancode-demo",
+    caseUrl: null,
+    pdfUrl: null,
   },
   {
     title: "AI QA Agent",
@@ -115,6 +135,8 @@ export const projects = [
     ],
     tags: ["LangGraph", "CI/CD", "Test automation"],
     demoUrl: null,
+    caseUrl: null,
+    pdfUrl: null,
   },
 ];
 

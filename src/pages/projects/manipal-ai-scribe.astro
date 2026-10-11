@@ -1,0 +1,433 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from "../../components/Nav.astro";
+import { asset } from "../../lib/assets";
+import { manipalAiScribe as prd } from "../../data/manipalAiScribe";
+
+const home = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Manipal AI Scribe — Product Requirements Document"
+  description="Product requirements for Manipal AI Scribe: ambient OPD documentation, structured prescriptions, and consultant review."
+>
+  <Nav />
+  <main id="main" class="px-6 pb-24 pt-28 md:pt-32">
+    <article class="mx-auto max-w-3xl">
+      <a
+        href={`${home}#projects`}
+        class="text-sm text-ink-muted transition-colors hover:text-accent"
+      >
+        Projects
+      </a>
+
+      <header class="mt-6">
+        <p class="section-label">{prd.org}</p>
+        <h1 class="mt-3 font-serif text-4xl text-ink md:text-6xl">
+          {prd.title}
+        </h1>
+        <p class="mt-4 text-sm text-ink-muted">
+          {prd.document} · {prd.version}
+        </p>
+        <p class="mt-6 text-lg leading-relaxed text-ink">{prd.summary}</p>
+        <a
+          href={asset("/manipal-ai-scribe-prd-v1.pdf")}
+          download
+          class="mt-6 inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          Download PDF
+        </a>
+      </header>
+
+      <section class="mt-14" aria-labelledby="vision">
+        <h2 id="vision" class="font-serif text-3xl text-ink">Product vision</h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">{prd.vision}</p>
+      </section>
+
+      <section class="mt-14" aria-labelledby="problem">
+        <h2 id="problem" class="font-serif text-3xl text-ink">Problem</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.problems.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14" aria-labelledby="goals">
+        <h2 id="goals" class="font-serif text-3xl text-ink">Goals and non-goals</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-2">
+          <div class="rounded-2xl glass-card p-6">
+            <h3 class="font-medium text-ink">Goals</h3>
+            <ul class="mt-4 space-y-3">
+              {
+                prd.goals.map((item) => (
+                  <li class="text-sm leading-relaxed text-ink-muted">{item}</li>
+                ))
+              }
+            </ul>
+          </div>
+          <div class="rounded-2xl glass-card p-6">
+            <h3 class="font-medium text-ink">Non-goals</h3>
+            <ul class="mt-4 space-y-3">
+              {
+                prd.nonGoals.map((item) => (
+                  <li class="text-sm leading-relaxed text-ink-muted">{item}</li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="users">
+        <h2 id="users" class="font-serif text-3xl text-ink">Primary users</h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[36rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">User</th>
+                <th class="px-5 py-3 font-medium">Need</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.users.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.user}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.need}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="modes">
+        <h2 id="modes" class="font-serif text-3xl text-ink">Product modes</h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[44rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">Mode</th>
+                <th class="px-5 py-3 font-medium">Entry</th>
+                <th class="px-5 py-3 font-medium">Experience</th>
+                <th class="px-5 py-3 font-medium">Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.modes.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.mode}
+                    </td>
+                    <td class="px-5 py-3 align-top text-ink-muted">{row.entry}</td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.experience}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.output}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="flow">
+        <h2 id="flow" class="font-serif text-3xl text-ink">Core user flow</h2>
+        <h3 class="mt-6 font-medium text-ink">Ambient</h3>
+        <ol class="mt-3 space-y-2">
+          {
+            prd.ambientFlow.map((step, index) => (
+              <li class="text-sm leading-relaxed text-ink-muted">
+                <span class="mr-2 text-accent">{index + 1}.</span>
+                {step}
+              </li>
+            ))
+          }
+        </ol>
+        <h3 class="mt-8 font-medium text-ink">Dictation</h3>
+        <ol class="mt-3 space-y-2">
+          {
+            prd.dictationFlow.map((step, index) => (
+              <li class="text-sm leading-relaxed text-ink-muted">
+                <span class="mr-2 text-accent">{index + 1}.</span>
+                {step}
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section class="mt-14" aria-labelledby="mapping">
+        <h2 id="mapping" class="font-serif text-3xl text-ink">
+          Clinical data mapping
+        </h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[44rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">Section</th>
+                <th class="px-5 py-3 font-medium">What is extracted</th>
+                <th class="px-5 py-3 font-medium">Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.mapping.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.section}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.extracts}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.example}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="rules">
+        <h2 id="rules" class="font-serif text-3xl text-ink">
+          Clinical interpretation rules
+        </h2>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.interpretation.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14" aria-labelledby="medication">
+        <h2 id="medication" class="font-serif text-3xl text-ink">
+          Medication resolution
+        </h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">{prd.medication.intro}</p>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[36rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">Field</th>
+                <th class="px-5 py-3 font-medium">Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.medication.rows.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.field}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.rule}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="architecture">
+        <h2 id="architecture" class="font-serif text-3xl text-ink">
+          Processing architecture
+        </h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">{prd.architecture.pipeline}</p>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.architecture.rules.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14" aria-labelledby="contract">
+        <h2 id="contract" class="font-serif text-3xl text-ink">
+          Structured output
+        </h2>
+        <p class="mt-4 leading-relaxed text-ink-muted">{prd.contract}</p>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[40rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">State</th>
+                <th class="px-5 py-3 font-medium">Meaning</th>
+                <th class="px-5 py-3 font-medium">What the consultant sees</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.statuses.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.status}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.meaning}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.ux}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="ux">
+        <h2 id="ux" class="font-serif text-3xl text-ink">UI and UX</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.ux.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14" aria-labelledby="privacy">
+        <h2 id="privacy" class="font-serif text-3xl text-ink">
+          Consent, privacy, and audit
+        </h2>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.privacy.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14" aria-labelledby="edges">
+        <h2 id="edges" class="font-serif text-3xl text-ink">Edge cases</h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[36rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">Situation</th>
+                <th class="px-5 py-3 font-medium">Expected behaviour</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.edges.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.scenario}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.behaviour}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="scope">
+        <h2 id="scope" class="font-serif text-3xl text-ink">Release scope</h2>
+        <div class="mt-6 space-y-4">
+          {
+            prd.phases.map((phase) => (
+              <div class="rounded-2xl glass-card p-6">
+                <h3 class="font-medium text-ink">{phase.phase}</h3>
+                <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                  {phase.scope}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="metrics">
+        <h2 id="metrics" class="font-serif text-3xl text-ink">
+          Analytics and success metrics
+        </h2>
+        <div class="mt-6 overflow-x-auto rounded-2xl glass-card">
+          <table class="w-full min-w-[36rem] text-left text-sm">
+            <thead>
+              <tr class="border-b border-border text-ink">
+                <th class="px-5 py-3 font-medium">Metric</th>
+                <th class="px-5 py-3 font-medium">Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                prd.metrics.map((row) => (
+                  <tr class="border-b border-border/70 last:border-0">
+                    <td class="px-5 py-3 align-top font-medium text-ink">
+                      {row.metric}
+                    </td>
+                    <td class="px-5 py-3 align-top leading-relaxed text-ink-muted">
+                      {row.why}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="mt-14" aria-labelledby="acceptance">
+        <h2 id="acceptance" class="font-serif text-3xl text-ink">
+          Acceptance criteria for MVP 1
+        </h2>
+        <ul class="mt-4 space-y-3">
+          {
+            prd.acceptance.map((item) => (
+              <li class="leading-relaxed text-ink-muted pl-4 relative before:absolute before:left-0 before:top-2.5 before:h-1.5 before:w-1.5 before:rounded-full before:bg-accent">
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="mt-14 rounded-2xl glass-card p-8 md:p-10" aria-labelledby="positioning">
+        <p id="positioning" class="section-label">Launch positioning</p>
+        <h2 class="mt-3 font-serif text-3xl text-ink md:text-4xl">{prd.title}</h2>
+        <p class="mt-4 font-serif text-2xl text-accent">{prd.positioning}</p>
+        <p class="mt-4 leading-relaxed text-ink-muted">
+          The scribe should feel like part of the OPD prescription, not another
+          tool the consultant has to manage between patients.
+        </p>
+      </section>
+    </article>
+  </main>
+</BaseLayout>
