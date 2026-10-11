@@ -88,6 +88,7 @@ export const projects = [
     tags: ["Clinical documentation", "OPD", "Hospital EMR"],
     demoUrl: null,
     caseUrl: "/projects/manipal-ai-scribe",
+    pdfUrl: "/manipal-ai-scribe-prd-v1.pdf",
   },
   {
     title: "FolioSure",
@@ -103,6 +104,7 @@ export const projects = [
     tags: ["AI ingestion", "Enterprise reporting", "Data pipelines"],
     demoUrl: null,
     caseUrl: null,
+    pdfUrl: null,
   },
   {
     title: "Fancode",
@@ -118,6 +120,7 @@ export const projects = [
     tags: ["Product thinking", "Figma", "Agentic AI"],
     demoUrl: "#fancode-demo",
     caseUrl: null,
+    pdfUrl: null,
   },
   {
     title: "AI QA Agent",
@@ -133,6 +136,7 @@ export const projects = [
     tags: ["LangGraph", "CI/CD", "Test automation"],
     demoUrl: null,
     caseUrl: null,
+    pdfUrl: null,
   },
 ];
 

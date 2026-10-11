@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Nav from "../../components/Nav.astro";
+import { asset } from "../../lib/assets";
 import { manipalAiScribe as prd } from "../../data/manipalAiScribe";
 
 const home = import.meta.env.BASE_URL;
@@ -29,6 +30,13 @@ const home = import.meta.env.BASE_URL;
           {prd.document} · {prd.version}
         </p>
         <p class="mt-6 text-lg leading-relaxed text-ink">{prd.summary}</p>
+        <a
+          href={asset("/manipal-ai-scribe-prd-v1.pdf")}
+          download
+          class="mt-6 inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+        >
+          Download PDF
+        </a>
       </header>
 
       <section class="mt-14" aria-labelledby="vision">
