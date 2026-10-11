@@ -8,10 +8,15 @@ interface Props {
   bullets: string[];
   tags: string[];
   demoUrl: string | null;
+  caseUrl?: string | null;
 }
 
-const { title, org, metric, problem, role, bullets, tags, demoUrl } =
+const { title, org, metric, problem, role, bullets, tags, demoUrl, caseUrl } =
   Astro.props;
+const base = import.meta.env.BASE_URL;
+const caseHref = caseUrl
+  ? `${base.replace(/\/$/, "")}${caseUrl}`
+  : null;
 ---
 
 <article
@@ -24,12 +29,12 @@ const { title, org, metric, problem, role, bullets, tags, demoUrl } =
         <h3 class="font-serif text-2xl md:text-3xl text-ink mt-1">{title}</h3>
       </div>
       {
-        demoUrl && (
+        (caseHref || demoUrl) && (
           <a
-            href={demoUrl}
+            href={caseHref || demoUrl}
             class="shrink-0 rounded-full border border-accent/30 px-3 py-1 text-xs font-medium text-accent transition-colors hover:bg-accent hover:text-white"
           >
-            Live Demo
+            {caseHref ? "Read PRD" : "Live Demo"}
           </a>
         )
       }
